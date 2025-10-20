@@ -1,0 +1,44 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QR Buddy Steak</title>
+<style>body{font-family:system-ui,"Noto Sans Thai",sans-serif;padding:24px;max-width:760px;margin:auto}input,button{font-size:16px}img{max-width:280px;margin-top:16px;border:1px solid #eee;border-radius:8px;display:block}</style>
+<h1>สร้าง QR เมนู Buddy Steak</h1>
+<p>กรอกลิงก์ GitHub Pages ของคุณ เช่น <code>https://YOURNAME.github.io/buddy-steak-menu/</code></p>
+<input id="u" placeholder="https://YOURNAME.github.io/buddy-steak-menu/" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:8px">
+<button id="g" style="margin-top:8px;padding:10px 14px;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer">Generate</button>
+<img id="q" alt="QR">
+<p><a id="d" download="buddy-steak-qr.png" style="display:none">Download PNG</a></p>
+<script>
+const api="https://api.qrserver.com/v1/create-qr-code/?size=600x600&margin=20&data=";
+const u=document.getElementById('u');const q=document.getElementById('q');const d=document.getElementById('d');
+document.getElementById('g').onclick=()=>{ if(!u.value.trim()) return alert('กรอก URL ก่อนครับ'); const src=api+encodeURIComponent(u.value.trim()); q.src=src; d.href=src; d.style.display='inline-block'; d.textContent='Download PNG';};
+</script>
+
+# Buddy Steak — เมนู (แกลเลอรี) สำหรับ GitHub Pages
+อัปเดตวันที่: 2025-10-17
+
+## วิธีออนไลน์ผ่านเว็บ (ง่ายสุด)
+1. เข้า GitHub แล้วสร้าง Repository ชื่อ **buddy-steak-menu** (Public)
+2. กด **Add file → Upload files** แล้วอัปโหลดไฟล์ทั้งหมดในโฟลเดอร์นี้
+3. ไปที่ **Settings → Pages → Build and deployment**
+   - Source: **Deploy from a branch**
+   - Branch: **main / root** แล้ว Save
+4. ลิงก์ของคุณจะเป็น: `https://<YOUR_GITHUB_USERNAME>.github.io/buddy-steak-menu/`
+
+## สร้าง QR
+เปิดไฟล์ `qr.html` กรอกลิงก์ แล้วกด Download PNG
+
+User-agent: *
+Allow: /
+Sitemap: ./sitemap.xml
+
+<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://example.com/</loc><lastmod>2025-10-17</lastmod></url></urlset>
+
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buddy Steak — เมนู</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<style>body{font-family:system-ui,"Noto Sans Thai",sans-serif;margin:0;background:#fff}.bar{position:sticky;top:0;padding:10px;border-bottom:1px solid #eee;background:#fff}.wrap{max-width:980px;margin:auto;padding:12px}.g{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}.c{border:1px solid #eee;border-radius:12px;overflow:hidden}.c img{display:block;width:100%;height:100%;object-fit:cover}</style>
+<div class="bar"><div class="wrap"><strong>Buddy Steak</strong> — เมนูแกลเลอรี</div></div>
+<div class="wrap"><div class="g">
+ <div class="c"><img src="assets/menu-dessert-drink.jpg" alt="เมนูของหวาน & เครื่องดื่ม"></div>
+ <div class="c"><img src="assets/brand-cover.jpg" alt="Brand Cover"></div>
+</div></div>
