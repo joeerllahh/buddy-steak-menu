@@ -1,0 +1,14 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QR Buddy Steak</title>
+<style>body{font-family:system-ui,"Noto Sans Thai",sans-serif;padding:24px;max-width:760px;margin:auto}input,button{font-size:16px}img{max-width:280px;margin-top:16px;border:1px solid #eee;border-radius:8px;display:block}</style>
+<h1>สร้าง QR เมนู Buddy Steak</h1>
+<p>กรอกลิงก์ GitHub Pages ของคุณ เช่น <code>https://YOURNAME.github.io/buddy-steak-menu/</code></p>
+<input id="u" placeholder="https://YOURNAME.github.io/buddy-steak-menu/" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:8px">
+<button id="g" style="margin-top:8px;padding:10px 14px;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer">Generate</button>
+<img id="q" alt="QR">
+<p><a id="d" download="buddy-steak-qr.png" style="display:none">Download PNG</a></p>
+<script>
+const api="https://api.qrserver.com/v1/create-qr-code/?size=600x600&margin=20&data=";
+const u=document.getElementById('u');const q=document.getElementById('q');const d=document.getElementById('d');
+document.getElementById('g').onclick=()=>{ if(!u.value.trim()) return alert('กรอก URL ก่อนครับ'); const src=api+encodeURIComponent(u.value.trim()); q.src=src; d.href=src; d.style.display='inline-block'; d.textContent='Download PNG';};
+</script>
